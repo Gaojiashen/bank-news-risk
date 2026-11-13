@@ -1,0 +1,54 @@
+# Python自动生成文件
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# 本地虚拟环境
+.venv
+
+# 私有研究资产，不纳入代码仓库发布
+/data/
+/models/
+/experiments/
+/docs/organization_report.md
+/docs/annotation/decisions/
+/docs/annotation/rule_history/
+
+# 数据、模型检查点和生成报告，包括误放到其他目录的副本
+*.csv
+*.tsv
+*.xlsx
+*.xls
+*.npy
+*.npz
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.pkl
+*.parquet
+*.zip
+*.png
+*.jpg
+*.jpeg
+*.pdf
+**/metrics.json
+**/loss_history.*
+
+# 本机配置及凭据
+.env
+.env.*
+!.env.example
+.aws/
+.ssh/
+.codex/
+.agents/
+.uv_cache/
+.uv_check_cache/
+**/.uv_check_cache/
+
+# 纯代码发布检查使用的临时副本
+/tests/.public_export_*/

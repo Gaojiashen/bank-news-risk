@@ -1,0 +1,23 @@
+[project]
+name = "paper-reproduction-and-improvement"
+version = "0.1.0"
+description = "Daily bank news semantics, sentiment networks and systemic risk forecasting"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "openpyxl>=3.1.5",
+    "torch>=2.6",
+    "transformers>=4.48",
+    "scikit-learn>=1.5",
+    "numpy>=2.0",
+    "matplotlib>=3.9",
+    "scipy>=1.14",
+    "pyyaml>=6.0",
+]
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu130" }
+
+[[tool.uv.index]]
+name = "pytorch-cu130"
+url = "https://download.pytorch.org/whl/cu130"

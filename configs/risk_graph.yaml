@@ -1,0 +1,9 @@
+lookback: 60
+horizon: 1
+batch_size: 32
+epochs: 300
+patience: 30
+learning_rate: 0.001
+seed: 42
+model: all
+output: experiments/risk_graph
