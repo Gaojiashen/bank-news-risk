@@ -30,7 +30,7 @@ NUM_WORKERS=0
 SELECTION_METRIC="macro_f1"
 SENTI_TO_INDEX={-1:0, 1:1}
 REL_LABELS={0:"不相关",1:"相关"}
-COLUMNS=["NewsContent","BankName","SourceFile","SourceRow","SentenceIndex","分析依据","相关/不相关","积极中性消极"]
+COLUMNS=["NewsContent","BankName","SourceFile","SourceRow","SentenceIndex","分析依据","相关/不相关","积极消极"]
 
 def read_split(path, expected):
     with Path(path).open(encoding="utf-8-sig", newline="") as handle:
@@ -40,7 +40,7 @@ def read_split(path, expected):
         result=[]
         for number, row in enumerate(reader,2):
             rel=row["相关/不相关"].strip()
-            senti=row["积极中性消极"].strip()
+            senti=row["积极消极"].strip()
             if rel not in ("0","1") or senti not in ("","-1","1") or (rel=="0" and senti):
                 raise DataError(f"Invalid final binary label: {path}:{number}")
             if not row["NewsContent"].strip() or not row["BankName"].strip():

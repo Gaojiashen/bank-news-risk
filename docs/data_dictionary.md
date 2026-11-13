@@ -6,9 +6,9 @@
 
 `bank_prices_raw.xlsx` 为原45家金融机构价格表，只提取16家银行；`bank_aliases.xlsx` 为原银行别名表。工作簿内容未变。
 
-`data/annotation/relevance/` 保留相关/不相关标签并清空情绪列。`data/annotation/sentiment/` 原样保留最终正负数据。兼容原数据，列名 `积极中性消极` 仍存在，但情绪只允许-1/+1；不包含中性0。
+`data/annotation/relevance/` 保留相关/不相关标签并清空情绪列。`data/annotation/sentiment/` 保留最终正负标签和样本文本。情绪字段统一为 `积极消极`，训练数据仅接受-1/+1，不相关样本留空；不兼容旧列名。
 
-`data/labeled_news/` 是片段级自动标注。共现按文章去重计边；语义按原文章—目标银行组合编码一次。
+`data/labeled_news/` 是片段级自动标注，其 `积极消极` 列使用“积极”或“消极”文本；训练CSV的同名列使用1或-1。共现按文章去重计边；语义按原文章—目标银行组合编码一次。
 
 ## 特征与风险
 

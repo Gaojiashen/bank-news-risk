@@ -48,7 +48,7 @@ def main():
     aliases=load_aliases()
     with output.open("x",encoding="utf-8-sig",newline="") as handle:
         writer=csv.writer(handle)
-        writer.writerow(["NewsContent","BankName","SourceFile","SourceRow","SentenceIndex","分析依据","相关/不相关","积极中性消极"])
+        writer.writerow(["NewsContent","BankName","SourceFile","SourceRow","SentenceIndex","分析依据","相关/不相关","积极消极"])
         for row in chosen:
             sentences=split_sentences(row["content"])
             for i,sentence in enumerate(sentences):

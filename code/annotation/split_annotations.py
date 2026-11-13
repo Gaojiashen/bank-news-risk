@@ -13,7 +13,7 @@ def partition(rows,seed=20261101):
         key=tuple(row[k] for k in ("SourceFile","SourceRow","SentenceIndex","BankName"))
         if key in seen:raise ValueError(f"Duplicate labeled sample: {key}")
         seen.add(key)
-        rel,senti=row["相关/不相关"].strip(),row["积极中性消极"].strip()
+        rel,senti=row["相关/不相关"].strip(),row["积极消极"].strip()
         if not row["分析依据"].strip() or (rel,senti) not in {("0",""),("1","-1"),("1","1")}:
             raise ValueError(f"Sample lacks valid final annotation: {key}")
         groups[(row["SourceFile"],row["SourceRow"])].append(row)
@@ -51,7 +51,7 @@ def main():
                     for original in records:
                         row=dict(original)
                         if task=="sentiment" and row["相关/不相关"]!="1":continue
-                        if task=="relevance":row["积极中性消极"]=""
+                        if task=="relevance":row["积极消极"]=""
                         writer.writerow(row)
         from .validate_annotations import validate_splits
         for task in ("relevance","sentiment"):validate_splits(stage/task,task)
